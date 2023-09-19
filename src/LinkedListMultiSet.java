@@ -66,7 +66,7 @@ public class LinkedListMultiSet <E> extends MultiSet <E>{
     }
 
     @Override
-    public boolean isEmpty(E item) {
+    public boolean isEmpty() {
         return this.size == 0;
     }
 
@@ -84,7 +84,7 @@ public class LinkedListMultiSet <E> extends MultiSet <E>{
     }
 
     @Override
-    public int size(E item) {
+    public int size() {
         return this.size;
     }
 }
