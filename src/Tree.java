@@ -1,4 +1,3 @@
-import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
 public class Tree<E> {
@@ -67,7 +66,7 @@ public class Tree<E> {
 
     }
 
-    public String string(){
+    public String toString(){
         return this.strIndented(0);
     }
 
@@ -150,6 +149,5 @@ public class Tree<E> {
             }
         }
         return false;
-
     }
 }
