@@ -89,4 +89,30 @@ public class Tree<E> {
         return s.toString();
     }
 
+    public float average(){
+
+        if (this.isEmpty()){
+            return 0.0f;
+        }
+        int[] helper = this.average_helper();
+        int total = helper[0];
+        int count = helper[1];
+        return (float) total/count;
+
+    }
+
+    private int[] average_helper() {
+        if (this.isEmpty()){
+            return new int[]{0,0};
+        }
+        int total = (int) this.root;
+        int size = 1;
+        for (Tree<E> subtree: this.subTrees){
+            int[] helper = subtree.average_helper();
+            total += helper[0];
+            size += helper[1];
+        }
+        return new int[]{total, size};
+
+    }
 }
