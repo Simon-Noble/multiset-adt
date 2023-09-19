@@ -1,3 +1,4 @@
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
 public class Tree<E> {
@@ -114,5 +115,23 @@ public class Tree<E> {
         }
         return new int[]{total, size};
 
+    }
+
+    public boolean equals(Tree<E> other){
+
+        if (this.isEmpty() && other.isEmpty()){
+            return true;
+        } else if (this.isEmpty() || other.isEmpty()){
+            return false;
+        }
+
+        if (this.root != other.root){
+            return false;
+        }
+
+        if(this.length() != other.length()){
+            return false;
+        }
+        return this.subTrees.equals(other.subTrees);
     }
 }
