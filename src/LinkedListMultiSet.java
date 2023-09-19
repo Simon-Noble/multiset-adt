@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class LinkedListMultiSet <E> extends MultiSet <E>{
 
