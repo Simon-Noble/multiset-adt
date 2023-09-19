@@ -1,12 +1,12 @@
 
-public abstract class MultiSet {
-    public abstract boolean add(Object item);
-    public abstract void remove(Object item);
+public abstract class MultiSet <E> {
+    public abstract boolean add(E item);
+    public abstract void remove(E item);
 
-    public abstract boolean contains (Object item);
+    public abstract boolean contains (E item);
 
-    public abstract boolean isEmpty(Object item);
-    public abstract int count(Object item);
+    public abstract boolean isEmpty(E item);
+    public abstract int count(E item);
 
-    public abstract int size(Object item);
+    public abstract int size(E item);
 }

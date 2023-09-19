@@ -1,12 +1,11 @@
-import java.security.cert.TrustAnchor;
 
-public class LinkedListMultiSet extends MultiSet{
+public class LinkedListMultiSet <E> extends MultiSet <E>{
 
     private class Node{
-        public Object item;
+        public E item;
         public Node next;
 
-        public Node(Object item){
+        public Node(E item){
             this.item = item;
             this.next = null;
         }
@@ -15,9 +14,8 @@ public class LinkedListMultiSet extends MultiSet{
     private Node front;
     private int size;
 
-
     @Override
-    public boolean add(Object item) {
+    public boolean add(E item) {
         Node newNode = new Node(item);
         newNode.next = this.front;
         this.front = newNode;
@@ -26,7 +24,7 @@ public class LinkedListMultiSet extends MultiSet{
     }
 
     @Override
-    public void remove(Object item) {
+    public void remove(E item) {
         Node curr = this.front;
         Node prev = null;
 
@@ -45,16 +43,16 @@ public class LinkedListMultiSet extends MultiSet{
             prev = curr;
             curr = curr.next;
         }
-        return;
+
 
     }
 
     @Override
-    public boolean contains(Object item) {
+    public boolean contains(E item) {
         Node curr = this.front;
         while (curr != null){
             if (curr.item == item){
-                return true
+                return true;
             }
             curr = curr.next;
         }
@@ -62,12 +60,12 @@ public class LinkedListMultiSet extends MultiSet{
     }
 
     @Override
-    public boolean isEmpty(Object item) {
+    public boolean isEmpty(E item) {
         return this.size == 0;
     }
 
     @Override
-    public int count(Object item) {
+    public int count(E item) {
         int numSeen = 0;
         Node cur = this.front;
         while (cur != null){
@@ -80,7 +78,7 @@ public class LinkedListMultiSet extends MultiSet{
     }
 
     @Override
-    public int size(Object item) {
+    public int size(E item) {
         return this.size;
     }
 }
