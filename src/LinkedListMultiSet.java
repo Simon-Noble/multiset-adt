@@ -15,6 +15,12 @@ public class LinkedListMultiSet <E> extends MultiSet <E>{
     private Node front;
     private int size;
 
+
+    public LinkedListMultiSet(){
+        this.front = null;
+        this.size = 0;
+    }
+
     @Override
     public boolean add(E item) {
         Node newNode = new Node(item);
