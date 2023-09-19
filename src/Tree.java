@@ -134,4 +134,22 @@ public class Tree<E> {
         }
         return this.subTrees.equals(other.subTrees);
     }
+
+
+    public boolean contains(E item){
+        if (this.isEmpty()){
+            return false;
+        }
+        if (this.root == item){
+            return true;
+        }
+
+        for(Tree<E> subtree: this.subTrees){
+            if (subtree.contains(item)){
+                return true;
+            }
+        }
+        return false;
+
+    }
 }
