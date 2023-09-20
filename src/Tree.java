@@ -153,18 +153,16 @@ public class Tree<E> {
 
     public ArrayList<E> leaves(){
         if (this.isEmpty()){
-            return new ArrayList<E>();
+            return new ArrayList<>();
         }else if(this.subTrees.isEmpty()){
-           ArrayList<E> list = new ArrayList<E>();
+           ArrayList<E> list = new ArrayList<>();
            list.add(this.root);
            return list;
         }
         ArrayList<E> leaves = new ArrayList<>();
         for (Tree<E> subtree: this.subTrees){
             ArrayList<E> newLeaves = subtree.leaves();
-            for (E element: newLeaves){
-                leaves.add(element);
-            }
+            leaves.addAll(newLeaves);
         }
         return leaves;
 
@@ -200,6 +198,25 @@ public class Tree<E> {
 
         this.root = chosenSubtree.root;
         this.subTrees.addAll(chosenSubtree.subTrees);
+
+    }
+
+    public void insert(E item){
+        if (this.isEmpty()){
+            this.root = item;
+            return;
+        }else if(this.subTrees.isEmpty()){
+            this.subTrees.add(new Tree<E>(item));
+            return;
+        }
+        int rand = (int) Math.floor(Math.random()*3+1);
+        if (rand == 3){
+            this.subTrees.add(new Tree<E>(item));
+            return;
+        }
+        int subTreeIndex = (int) Math.floor(Math.random()*this.subTrees.size());
+        this.subTrees.get(subTreeIndex).insert(item);
+
 
 
 
