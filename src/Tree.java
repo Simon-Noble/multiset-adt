@@ -206,12 +206,12 @@ public class Tree<E> {
             this.root = item;
             return;
         }else if(this.subTrees.isEmpty()){
-            this.subTrees.add(new Tree<E>(item));
+            this.subTrees.add(new Tree<>(item));
             return;
         }
         int rand = (int) Math.floor(Math.random()*3+1);
         if (rand == 3){
-            this.subTrees.add(new Tree<E>(item));
+            this.subTrees.add(new Tree<>(item));
             return;
         }
         int subTreeIndex = (int) Math.floor(Math.random()*this.subTrees.size());
@@ -219,6 +219,22 @@ public class Tree<E> {
 
 
 
+
+    }
+
+    public boolean insertChild ( E item, E parent){
+        if (this.isEmpty()){
+            return false;
+        }else if (this.root == parent){
+            this.subTrees.add(new Tree<>(item));
+            return true;
+        }
+        for (Tree<E> subtree: this.subTrees){
+            if (subtree.insertChild(item, parent)) {
+                return true;
+            }
+        }
+        return false;
 
     }
 }
