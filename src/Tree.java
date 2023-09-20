@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Tree<E> {
+public class Tree<E extends Comparable<E>> {
 
     private E root;
 
@@ -105,7 +105,7 @@ public class Tree<E> {
         if (this.isEmpty()){
             return new int[]{0,0};
         }
-        int total = (int) this.root;
+        int total = (Integer) this.root;
         int size = 1;
         for (Tree<E> subtree: this.subTrees){
             int[] helper = subtree.average_helper();
