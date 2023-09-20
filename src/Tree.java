@@ -150,4 +150,23 @@ public class Tree<E> {
         }
         return false;
     }
+
+    public ArrayList<E> leaves(){
+        if (this.isEmpty()){
+            return new ArrayList<E>();
+        }else if(this.subTrees.isEmpty()){
+           ArrayList<E> list = new ArrayList<E>();
+           list.add(this.root);
+           return list;
+        }
+        ArrayList<E> leaves = new ArrayList<>();
+        for (Tree<E> subtree: this.subTrees){
+            ArrayList<E> newLeaves = subtree.leaves();
+            for (E element: newLeaves){
+                leaves.add(element);
+            }
+        }
+        return leaves;
+
+    }
 }
