@@ -169,4 +169,39 @@ public class Tree<E> {
         return leaves;
 
     }
+
+    public boolean deleteItem(E item){
+        if (this.isEmpty()){
+            return false;
+        }else if (this.root == item){
+            this.deleteRoot();
+            return true;
+        }
+
+        for (Tree<E> subTree: this.subTrees){
+            boolean deleted = subTree.deleteItem(item);
+            if (deleted && subTree.isEmpty()){
+                this.subTrees.remove(subTree);
+                return true;
+            }else if (deleted){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void deleteRoot(){
+        if (this.subTrees.isEmpty()){
+            this.root = null;
+            return;
+        }
+        Tree<E> chosenSubtree = this.subTrees.get(0);
+        this.subTrees.remove(0);
+
+        this.root = chosenSubtree.root;
+        this.subTrees.addAll(chosenSubtree.subTrees);
+
+
+
+    }
 }
