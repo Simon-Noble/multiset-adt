@@ -4,7 +4,7 @@ public class Tree<E extends Comparable<E>> {
 
     private E root;
 
-    private ArrayList<Tree<E>> subTrees;
+    private final ArrayList<Tree<E>> subTrees;
 
     public Tree(E root, ArrayList<Tree<E>> subTrees ){
         this.root = root;
