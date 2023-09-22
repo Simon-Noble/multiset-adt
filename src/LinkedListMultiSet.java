@@ -1,6 +1,5 @@
-import java.util.*;
 
-public class LinkedListMultiSet <E> extends MultiSet <E>{
+public class LinkedListMultiSet <E extends Comparable<E>> implements MultiSet<E> {
 
     private class Node{
         public E item;

@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class ArrayListMultiSet <E> extends MultiSet<E>{
+public class ArrayListMultiSet <E extends Comparable<E>> implements MultiSet<E> {
 
 
     ArrayList<E> list;
 
     public ArrayListMultiSet(){
-        this.list = new ArrayList<E>();
+        this.list = new ArrayList<>();
     }
 
     @Override
@@ -26,8 +26,10 @@ public class ArrayListMultiSet <E> extends MultiSet<E>{
         return this.list.contains(item);
     }
 
+
+
     @Override
-    public boolean isEmpty(E item) {
+    public boolean isEmpty() {
         return this.list.isEmpty();
     }
 
@@ -42,8 +44,9 @@ public class ArrayListMultiSet <E> extends MultiSet<E>{
         return count;
     }
 
+
     @Override
-    public int size(E item) {
+    public int size() {
         return this.list.size();
     }
 }

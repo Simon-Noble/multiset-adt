@@ -1,7 +1,7 @@
-public class TreeMultiSet<E> extends MultiSet<E>{
+public class TreeMultiSet<E extends Comparable<E>> implements MultiSet<E> {
 
 
-    private Tree<E> tree;
+    private final Tree<E> tree;
 
     public TreeMultiSet(){
         this.tree = new Tree<>();
